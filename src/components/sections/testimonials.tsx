@@ -6,26 +6,29 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-  //   name: "Sarah Chen",
-  //   role: "CTO at TechCorp",
-  //   image: "https://i.pravatar.cc/150?img=1",
-  //   content: "Their team delivered our enterprise software solution ahead of schedule. The quality of code and attention to detail was exceptional. We've seen a 40% improvement in operational efficiency.",
-  //   rating: 5
+    name: "Sarah Chen",
+    role: "CTO at TechCorp",
+    image: "https://i.pravatar.cc/150?img=1",
+    content:
+      "Their team delivered our enterprise software solution ahead of schedule. The quality of code and attention to detail was exceptional. We've seen a 40% improvement in operational efficiency.",
+    rating: 5,
   },
   {
-  //   name: "Michael Rodriguez",
-  //   role: "CEO at DataFlow",
-  //   image: "https://i.pravatar.cc/150?img=2",
-  //   content: "The AI solution they developed has transformed our data analytics capabilities. Their expertise in machine learning and commitment to our success was impressive.",
-  //   rating: 5
+    name: "Michael Rodriguez",
+    role: "CEO at DataFlow",
+    image: "https://i.pravatar.cc/150?img=2",
+    content:
+      "The AI solution they developed has transformed our data analytics capabilities. Their expertise in machine learning and commitment to our success was impressive.",
+    rating: 5,
   },
   {
-  //   name: "Emily Thompson",
-  //   role: "Product Director at InnovateTech",
-  //   image: "https://i.pravatar.cc/150?img=3",
-  //   content: "Working with their team on our mobile app was a game-changer. They brought innovative ideas and delivered a product that our users love. Downloads increased by 200%.",
-  //   rating: 5
-  }
+    name: "Emily Thompson",
+    role: "Product Director at InnovateTech",
+    image: "https://i.pravatar.cc/150?img=3",
+    content:
+      "Working with their team on our mobile app was a game-changer. They brought innovative ideas and delivered a product that our users love. Downloads increased by 200%.",
+    rating: 5,
+  },
 ]
 
 export default function Testimonials() {
@@ -50,7 +53,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <MotionDiv
-              // key={testimonial.name}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -58,28 +61,28 @@ export default function Testimonials() {
               className="bg-background rounded-xl p-6 shadow-sm border"
             >
               <div className="flex items-center gap-4 mb-4">
-                {/* <Image
-                  // src={testimonial.image}
-                  // alt={testimonial.name}
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.name}
                   width={48}
                   height={48}
                   className="rounded-full"
-                /> */}
-                {/* <div>
+                />
+                <div>
                   <h4 className="font-semibold">{testimonial.name}</h4>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div> */}
+                </div>
               </div>
-              
-              {/* <div className="flex gap-1 mb-4">
+
+              <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                 ))}
-              </div> */}
+              </div>
 
-              {/* <blockquote className="text-muted-foreground">
+              <blockquote className="text-muted-foreground text-sm">
                 &quot;{testimonial.content}&quot;
-              </blockquote> */}
+              </blockquote>
             </MotionDiv>
           ))}
         </div>
@@ -112,4 +115,4 @@ export default function Testimonials() {
       </div>
     </section>
   )
-} 
+}

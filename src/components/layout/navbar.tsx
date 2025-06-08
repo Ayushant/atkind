@@ -175,7 +175,8 @@ const Navbar = () => {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
               <CheckCircle2 className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Let's Talk</h3>
+            <h3 className="text-xl font-semibold mb-2">Let&rsquo;s Talk</h3>
+
             <div className="flex items-center justify-center gap-2 text-sm mb-2">
               <Phone className="h-4 w-4 text-primary" />
               <a href="tel:+919021027889" className="hover:text-primary transition-colors">
