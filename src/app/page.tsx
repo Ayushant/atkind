@@ -15,23 +15,17 @@ const Process = dynamic(() => import("@/components/sections/process"), {
   loading: () => <div className="h-screen animate-pulse bg-muted" />
 })
 
-const Testimonials = dynamic(() => import("@/components/sections/testimonials"), {
-  loading: () => <div className="h-screen animate-pulse bg-muted" />
-})
-
 const Pricing = dynamic(() => import("@/components/sections/pricing"), {
   loading: () => <div className="h-screen animate-pulse bg-muted" />
 })
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden w-full">
       <Hero />
       <Services />
-      <Solutions />
-      <OurWork />
+      <Solutions />      <OurWork />
       <Process />
-      <Testimonials />
       <Pricing />
     </main>
   )

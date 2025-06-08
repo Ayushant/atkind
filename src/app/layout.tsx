@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DevCraft - Software Development Solutions",
+  title: "atkind - Software Development Solutions",
   description: "Transform your business with cutting-edge software solutions",
 };
 

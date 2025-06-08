@@ -11,7 +11,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/atkind",
     icon: <Linkedin className="h-5 w-5" />
   },
   {
@@ -21,7 +21,7 @@ const socialLinks = [
   },
   {
     name: "Email",
-    href: "mailto:contact@devcraft.com",
+    href: "mailto:contact@atkind.com",
     icon: <Mail className="h-5 w-5" />
   }
 ] as const
@@ -60,10 +60,8 @@ export function Footer() {
     <footer className="bg-secondary/30 border-t">
       <div className="container px-4 py-12 mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand and Social */}
-          <div className="col-span-2 md:col-span-1">
-            <a href="#" className="inline-block font-bold text-xl text-primary mb-4">
-              DevCraft
+          {/* Brand and Social */}          <div className="col-span-2 md:col-span-1">            <a href="#" className="inline-block font-bold text-xl text-primary mb-4">
+              atkind
             </a>
             <p className="text-muted-foreground text-sm mb-4">
               Crafting digital excellence through innovative software solutions.
@@ -110,12 +108,10 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 mt-8 border-t text-center text-sm text-muted-foreground">
-          <p>
-            © {currentYear} DevCraft. All rights reserved.
+        <div className="pt-8 mt-8 border-t text-center text-sm text-muted-foreground">          <p>            © {currentYear} atkind. All rights reserved.
           </p>
           <p className="mt-1">
-            Crafted with passion by the DevCraft team.
+            Crafted with passion by the atkind team.
           </p>
         </div>
       </div>

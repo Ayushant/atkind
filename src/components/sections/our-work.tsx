@@ -4,7 +4,7 @@ import { useState } from "react"
 import { MotionDiv } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Globe } from "lucide-react"
+import { ExternalLink, Github, Globe, X, ZoomIn } from "lucide-react"
 import Image from "next/image"
 
 type Project = {
@@ -12,7 +12,7 @@ type Project = {
   title: string
   description: string
   image: string
-  category: "web" | "mobile" | "desktop" | "all"
+  category: "web" | "ecommerce" | "education" | "mobile" | "all"
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
@@ -22,76 +22,143 @@ type Project = {
 const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with real-time inventory management",
+    title: "FairPlace",
+    description: "Real estate platform with property listings and advanced search capabilities",
     image: "/our-work/photo-1472851294608-062f824d29cc.png",
     category: "web",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-    liveUrl: "https://example.com",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://fairplace.in",
     githubUrl: "https://github.com",
     color: "blue"
   },
   {
     id: "2",
-    title: "Mobile Banking App",
-    description: "Secure mobile banking application with biometric authentication",
+    title: "MakeMyCrop",
+    description: "Agricultural platform helping farmers optimize crop production",
     image: "/our-work/photo-1563013544-824ae1b704d3.png",
-    category: "mobile",
-    technologies: ["React Native", "Node.js", "MongoDB"],
+    category: "web",
+    technologies: ["Vue.js", "Express", "PostgreSQL"],
+    liveUrl: "https://makemycrop.com",
     color: "green"
   },
   {
     id: "3",
-    title: "Desktop Analytics Tool",
-    description: "Real-time data analytics and visualization desktop application",
+    title: "German Classes Portal",
+    description: "Educational website for Aditya Sir's German language classes",
     image: "/our-work/photo-1551288049-bebda4e38f71.png",
-    category: "desktop",
-    technologies: ["Electron", "React", "D3.js"],
-    githubUrl: "https://github.com",
+    category: "education",
+    technologies: ["HTML", "CSS", "JavaScript", "Netlify"],
+    liveUrl: "https://adityasirgermanclasses.netlify.app",
     color: "purple"
   },
   {
     id: "4",
-    title: "Healthcare Platform",
-    description: "Telemedicine and patient management system",
+    title: "WordPress NA",
+    description: "WordPress community platform with resources and tutorials",
     image: "/our-work/photo-1576091160550-2173dba999ef.png",
-    category: "web",
-    technologies: ["React", "Node.js", "PostgreSQL"],
+    category: "education",
+    technologies: ["React", "WordPress API", "Netlify"],
+    liveUrl: "https://wordpressna.netlify.app",
     color: "blue"
   },
   {
     id: "5",
-    title: "Delivery App",
-    description: "Real-time delivery tracking and management application",
+    title: "Today's AI",
+    description: "AI news and updates platform featuring latest developments",
     image: "/our-work/photo-1526628953301-3e589a6a8b74.png",
-    category: "mobile",
-    technologies: ["Flutter", "Firebase", "Google Maps"],
+    category: "web",
+    technologies: ["React", "Next.js", "Netlify"],
+    liveUrl: "https://todaysai.netlify.app",
     color: "green"
   },
   {
     id: "6",
-    title: "AI Video Editor",
-    description: "Desktop video editing software with AI capabilities",
+    title: "SRINC Corporate Website",
+    description: "Corporate website for SRINC with service offerings and contact information",
     image: "/our-work/photo-1536240478700-b869070f9279.png",
-    category: "desktop",
-    technologies: ["Python", "TensorFlow", "Qt"],
+    category: "web",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+    liveUrl: "https://srinc.in",
+    color: "purple"
+  },
+  {
+    id: "7",
+    title: "Karigari Demo",
+    description: "E-commerce platform for artisanal handcrafted products",
+    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    category: "ecommerce",
+    technologies: ["React", "Firebase", "Netlify"],
+    liveUrl: "https://karigaridemo.netlify.app",
+    color: "blue"
+  },
+  {
+    id: "8",
+    title: "Sports Gear Swag",
+    description: "E-commerce store for sports merchandise and equipment",
+    image: "/our-work/photo-1472851294608-062f824d29cc.png",
+    category: "ecommerce",
+    technologies: ["Shopify", "Liquid", "JavaScript"],
+    liveUrl: "https://www.sportsgearswag.com",
+    color: "green"
+  },
+  {
+    id: "9",
+    title: "Wristband",
+    description: "Custom wristband and accessories online store",
+    image: "/our-work/photo-1563013544-824ae1b704d3.png",
+    category: "ecommerce",
+    technologies: ["WordPress", "WooCommerce", "PHP"],
+    liveUrl: "https://www.wristband.com",
+    color: "purple"
+  },
+  {
+    id: "10",
+    title: "CodePrep - Interview Prep App",
+    description: "Mobile application for technical interview preparation with coding notes, company questions, and AI assistance",
+    image: "/our-work/codeprep-mobile.png",
+    category: "mobile",
+    technologies: ["React Native", "TypeScript", "Node.js", "MongoDB"],
+    // liveUrl: "https://play.google.com/store/apps/codeprep",
+    color: "blue"
+  },
+  {
+    id: "11", 
+    title: "WinWitty - Gaming Platform",
+    description: "Mobile gaming platform with daily missions, spin wheel rewards, and multiple puzzle games including Tic Tac Toe and 2048",
+    image: "/our-work/winwitty-mobile.png",
+    category: "mobile",
+    technologies: ["Flutter", "Dart", "Firebase", "Cloud Functions"],
+    // liveUrl: "https://play.google.com/store/apps/winwitty",
     color: "purple"
   }
 ]
 
 const categories = [
   { id: "all", label: "All Projects" },
-  { id: "web", label: "Web Apps" },
+  { id: "web", label: "Websites" },
+  { id: "ecommerce", label: "E-commerce" },
+  { id: "education", label: "Education" },
   { id: "mobile", label: "Mobile Apps" },
-  { id: "desktop", label: "Desktop Apps" },
 ] as const
 
 export function OurWork() {
   const [selectedCategory, setSelectedCategory] = useState<Project["category"]>("all")
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   const filteredProjects = projects.filter(
     project => selectedCategory === "all" || project.category === selectedCategory
   )
+
+  const openImageModal = (project: Project) => {
+    setSelectedProject(project)
+    setSelectedImage(project.image)
+  }
+
+  const closeImageModal = () => {
+    setSelectedImage(null)
+    setSelectedProject(null)
+  }
 
   return (
     <section id="work" className="py-20">
@@ -102,12 +169,11 @@ export function OurWork() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Featured Work
+        >          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Our Portfolio
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore our portfolio of successful projects and innovative solutions
+            Explore our collection of successful client projects and innovative solutions
           </p>
         </MotionDiv>
 
@@ -138,7 +204,7 @@ export function OurWork() {
             >
               <div className="bg-background rounded-xl overflow-hidden border">
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-muted">
+                <div className="relative h-48 overflow-hidden bg-muted cursor-pointer group/image" onClick={() => openImageModal(project)}>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -152,13 +218,20 @@ export function OurWork() {
                       target.src = "/our-work/photo-1618005182384-a83a8bd57fbe.png";
                     }}
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  {/* Zoom overlay */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
+                    <ZoomIn className="w-8 h-8 text-white" />
+                  </div>
+                  {/* Links overlay */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4" 
+                       onClick={(e) => e.stopPropagation()}>
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+                        aria-label={`Visit ${project.title} website`}
                       >
                         <Globe className="w-6 h-6 text-white" />
                       </a>
@@ -169,6 +242,7 @@ export function OurWork() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+                        aria-label={`Visit ${project.title} GitHub repository`}
                       >
                         <Github className="w-6 h-6 text-white" />
                       </a>
@@ -177,11 +251,19 @@ export function OurWork() {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                    {project.title}
-                    {project.liveUrl && (
-                      <ExternalLink className="w-4 h-4 text-muted-foreground" />
+                <div className="p-6">                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                    {project.liveUrl ? (
+                      <a 
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors inline-flex items-center gap-2"
+                      >
+                        {project.title}
+                        <ExternalLink className="w-4 h-4 text-muted-foreground" />
+                      </a>
+                    ) : (
+                      project.title
                     )}
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -189,14 +271,10 @@ export function OurWork() {
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
+                  <div className="flex flex-wrap gap-2">                    {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={cn(
-                          "px-2 py-1 rounded-full text-xs",
-                          `bg-${project.color}-500/10 text-${project.color}-500`
-                        )}
+                        className="px-2 py-1 rounded-full text-xs bg-primary-500/10 text-primary-500"
                       >
                         {tech}
                       </span>
@@ -207,7 +285,88 @@ export function OurWork() {
             </MotionDiv>
           ))}
         </div>
+
+        {/* Image Modal */}
+        {selectedImage && selectedProject && (
+          <div 
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            onClick={closeImageModal}
+          >
+            <div className="relative max-w-4xl max-h-[90vh] w-full">
+              {/* Close button */}
+              <button
+                onClick={closeImageModal}
+                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+                aria-label="Close modal"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              
+              {/* Modal content */}
+              <div className="bg-background rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                {/* Large image */}
+                <div className="relative w-full h-[60vh] bg-muted">
+                  <Image
+                    src={selectedImage}
+                    alt={selectedProject.title}
+                    fill
+                    className="object-contain"
+                    sizes="90vw"
+                    priority
+                  />
+                </div>
+                
+                {/* Project details */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
+                    <div className="flex gap-3">
+                      {selectedProject.liveUrl && (
+                        <a
+                          href={selectedProject.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                        >
+                          <Globe className="w-4 h-4" />
+                          Visit Site
+                        </a>
+                      )}
+                      {selectedProject.githubUrl && (
+                        <a
+                          href={selectedProject.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-muted transition-colors"
+                        >
+                          <Github className="w-4 h-4" />
+                          GitHub
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-4 text-lg">
+                    {selectedProject.description}
+                  </p>
+                  
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-full text-sm bg-primary/10 text-primary"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
-} 
+}
