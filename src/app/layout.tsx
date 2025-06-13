@@ -18,14 +18,7 @@ export const metadata: Metadata = {
     description: "Custom web applications and production-ready solutions",
     url: "https://atkind.com",
     siteName: "atkind",
-    images: [
-      {
-        url: "https://atkind.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "atkind - Professional Web Development",
-      }
-    ],
+   
     locale: "en_US",
     type: "website",
   },
@@ -33,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "atkind - Professional Web Development",
     description: "Custom web applications and production-ready solutions",
-    images: ["https://atkind.com/og-image.jpg"],
+    
   },
 };
 
