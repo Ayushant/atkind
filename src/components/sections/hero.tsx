@@ -109,7 +109,7 @@ const Hero = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
           >
             {[
-              { number: "10+", label: "Years Experience" },
+              { number: "5+", label: "Years Experience" },
               { number: "55+", label: "Projects Delivered" },
               { number: "15+", label: "Team Members" },
               { number: "99%", label: "Client Satisfaction" }
