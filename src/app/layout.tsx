@@ -19,11 +19,15 @@ export const metadata: Metadata = {
     url: "https://atkind.com",
     siteName: "atkind",
     type: "website",
+    // Explicitly remove images
+    images: []
   },
   twitter: {
     card: "summary",
     title: "atkind - Professional Web Development",
     description: "Custom web applications and production-ready solutions",
+    // Explicitly remove images
+    images: []
   },
 };
 
