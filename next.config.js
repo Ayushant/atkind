@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  swcMinify: true, // Use SWC for minification (faster than Terser)
+  // swcMinify option has been removed as it's no longer needed in Next.js 13+
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
