@@ -30,16 +30,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     color: "blue"
   },
-  {
-    id: "2",
-    title: "MakeMyCrop",
-    description: "Agricultural platform helping farmers optimize crop production",
-    image: "/our-work/photo-1563013544-824ae1b704d3.png",
-    category: "web",
-    technologies: ["Vue.js", "Express", "PostgreSQL"],
-    liveUrl: "https://makemycrop.com",
-    color: "green"
-  },
+ 
   {
     id: "3",
     title: "German Classes Portal",
@@ -90,26 +81,8 @@ const projects: Project[] = [
     liveUrl: "https://karigaridemo.netlify.app",
     color: "blue"
   },
-  {
-    id: "8",
-    title: "Sports Gear Swag",
-    description: "E-commerce store for sports merchandise and equipment",
-    image: "/our-work/photo-1472851294608-062f824d29cc.png",
-    category: "ecommerce",
-    technologies: ["Shopify", "Liquid", "JavaScript"],
-    liveUrl: "https://www.sportsgearswag.com",
-    color: "green"
-  },
-  {
-    id: "9",
-    title: "Wristband",
-    description: "Custom wristband and accessories online store",
-    image: "/our-work/photo-1563013544-824ae1b704d3.png",
-    category: "ecommerce",
-    technologies: ["WordPress", "WooCommerce", "PHP"],
-    liveUrl: "https://www.wristband.com",
-    color: "purple"
-  },
+ 
+ 
   {
     id: "10",
     title: "CodePrep - Interview Prep App",
@@ -130,8 +103,7 @@ const projects: Project[] = [
     color: "purple"
   },
   {
-    id: "12",
-    title: "Rohum.tech",
+    id: "12",    title: "Rohum.tech",
     description: "Mental health platform offering therapy sessions and self-help resources",
     image: "/our-work/photo-1536240478700-b869070f9279.png",
     category: "web",
@@ -141,32 +113,72 @@ const projects: Project[] = [
   },
   {
     id: "13",
-    title: "NCX.cx",
-    description: "Cryptocurrency exchange platform with advanced trading features",
-    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    title: "AdiYogInGo",
+    description: "Yoga and wellness platform offering classes and meditation resources",
+    image: "/our-work/photo-1551288049-bebda4e38f71.png",
     category: "web",
-    technologies: ["React", "Node.js", "PostgreSQL", "WebSockets"],
-    liveUrl: "https://ncx.cx",
-    color: "green"
-  },
-  {
-    id: "14",
-    title: "OkBoz.com",
-    description: "Innovative e-commerce marketplace connecting local vendors with customers",
-    image: "/our-work/photo-1563013544-824ae1b704d3.png",
-    category: "ecommerce",
-    technologies: ["Next.js", "Express", "MongoDB", "Stripe"],
-    liveUrl: "https://okboz.com",
+    technologies: ["React", "Firebase", "Netlify"],
+    liveUrl: "https://adiyogingo.netlify.app",
     color: "purple"
   },
   {
+    id: "14",
+    title: "Astro Project",
+    description: "Astronomy education platform with interactive star maps and celestial information",
+    image: "/our-work/photo-1576091160550-2173dba999ef.png",
+    category: "education",
+    technologies: ["React", "Three.js", "Netlify"],
+    liveUrl: "https://astroproject155.netlify.app",
+    color: "blue"
+  },
+  {
     id: "15",
-    title: "PowerConnect.ai",
-    description: "AI-powered business networking platform for professionals",
+    title: "LivelyK",
+    description: "Event booking and management platform for live performances",
+    image: "/our-work/photo-1563013544-824ae1b704d3.png",
+    category: "web",
+    technologies: ["Next.js", "Firebase", "Tailwind CSS"],
+    liveUrl: "https://livelyk.netlify.app",
+    color: "green"
+  },
+  {
+    id: "16",
+    title: "FairPlace Medical",
+    description: "Healthcare provider directory and appointment booking platform",
     image: "/our-work/photo-1472851294608-062f824d29cc.png",
     category: "web",
-    technologies: ["React", "Python", "Django", "TensorFlow"],
-    liveUrl: "https://powerconnect.ai",
+    technologies: ["React", "Node.js", "MongoDB"],
+    liveUrl: "https://fairplace-med.netlify.app",
+    color: "blue"
+  },
+  {
+    id: "17",
+    title: "Hotel 23K",
+    description: "Luxury hotel booking platform with virtual room tours",
+    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    category: "web",
+    technologies: ["React", "Node.js", "Express"],
+    liveUrl: "https://hotel23k.netlify.app",
+    color: "purple"
+  },
+  {
+    id: "18",
+    title: "DCE Educational Portal",
+    description: "E-learning platform for engineering students with course materials and assessments",
+    image: "/our-work/photo-1526628953301-3e589a6a8b74.png",
+    category: "education",
+    technologies: ["React", "Firebase", "Material UI"],
+    liveUrl: "https://dce2.netlify.app",
+    color: "green"
+  },
+  {
+    id: "19",
+    title: "ExploreSphere",
+    description: "Travel planning and destination discovery platform with interactive maps",
+    image: "/our-work/photo-1536240478700-b869070f9279.png",
+    category: "web",
+    technologies: ["Next.js", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://exploresphere.netlify.app",
     color: "blue"
   }
 ]
