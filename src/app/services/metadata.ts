@@ -9,16 +9,12 @@ export const metadata: Metadata = {
     description: "Explore our wide range of professional web development services",
     url: "https://atkind.com/services",
     siteName: "atkind",
-    // Explicitly remove images
-    images: [],
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary",
     title: "Our Services - atkind",
-    description: "Explore our wide range of professional web development services",
-    // Explicitly remove images
-    images: [],
+    description: "Explore our wide range of professional web development services"
   },
 };

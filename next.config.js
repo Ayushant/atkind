@@ -11,6 +11,11 @@ const nextConfig = {
     domains: ['i.pravatar.cc', 'images.unsplash.com'],
     unoptimized: process.env.NODE_ENV === "development",
   },
+  // Disable automatic OG image generation
+  experimental: {
+    optimizeCss: true,
+    scrollRestoration: true,
+  },
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
     // Production optimizations
