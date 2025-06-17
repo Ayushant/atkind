@@ -119,8 +119,7 @@ const projects: Project[] = [
     technologies: ["React Native", "TypeScript", "Node.js", "MongoDB"],
     // liveUrl: "https://play.google.com/store/apps/codeprep",
     color: "blue"
-  },
-  {
+  },  {
     id: "11", 
     title: "WinWitty - Gaming Platform",
     description: "Mobile gaming platform with daily missions, spin wheel rewards, and multiple puzzle games including Tic Tac Toe and 2048",
@@ -129,6 +128,46 @@ const projects: Project[] = [
     technologies: ["Flutter", "Dart", "Firebase", "Cloud Functions"],
     // liveUrl: "https://play.google.com/store/apps/winwitty",
     color: "purple"
+  },
+  {
+    id: "12",
+    title: "Rohum.tech",
+    description: "Mental health platform offering therapy sessions and self-help resources",
+    image: "/our-work/photo-1536240478700-b869070f9279.png",
+    category: "web",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://rohum.tech",
+    color: "blue"
+  },
+  {
+    id: "13",
+    title: "NCX.cx",
+    description: "Cryptocurrency exchange platform with advanced trading features",
+    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    category: "web",
+    technologies: ["React", "Node.js", "PostgreSQL", "WebSockets"],
+    liveUrl: "https://ncx.cx",
+    color: "green"
+  },
+  {
+    id: "14",
+    title: "OkBoz.com",
+    description: "Innovative e-commerce marketplace connecting local vendors with customers",
+    image: "/our-work/photo-1563013544-824ae1b704d3.png",
+    category: "ecommerce",
+    technologies: ["Next.js", "Express", "MongoDB", "Stripe"],
+    liveUrl: "https://okboz.com",
+    color: "purple"
+  },
+  {
+    id: "15",
+    title: "PowerConnect.ai",
+    description: "AI-powered business networking platform for professionals",
+    image: "/our-work/photo-1472851294608-062f824d29cc.png",
+    category: "web",
+    technologies: ["React", "Python", "Django", "TensorFlow"],
+    liveUrl: "https://powerconnect.ai",
+    color: "blue"
   }
 ]
 
