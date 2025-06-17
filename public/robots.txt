@@ -1,0 +1,13 @@
+# robots.txt for atkind.com
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Prevent image indexing
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Disallow: /*.gif$
+Disallow: /*.webp$
+
+Sitemap: https://atkind.com/sitemap.xml

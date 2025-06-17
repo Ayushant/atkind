@@ -18,12 +18,14 @@ export const metadata: Metadata = {
     description: "Custom web applications and production-ready solutions",
     url: "https://atkind.com",
     siteName: "atkind",
-    type: "website"
+    type: "website",
+    images: [] // Explicitly empty array for no images
   },
   twitter: {
     card: "summary",
     title: "atkind - Professional Web Development",
-    description: "Custom applications and production-ready solutions"
+    description: "Custom applications and production-ready solutions",
+    images: [] // Explicitly empty array for no images
   },
 };
 
