@@ -7,14 +7,14 @@ import { Footer } from "@/components/layout/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "atkind - Professional Web Development",
+  title: "atkind - Professional Software Development",
   description: "Custom web applications and production-ready solutions",
   metadataBase: new URL('https://atkind.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "atkind - Professional Web Development",
+    title: "atkind - Professional Software Development",
     description: "Custom web applications and production-ready solutions",
     url: "https://atkind.com",
     siteName: "atkind",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "atkind - Professional Web Development",
+    title: "atkind - Professional Software Development",
     description: "Custom applications and production-ready solutions",
     images: [] // Explicitly empty array for no images
   },

@@ -30,7 +30,16 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     color: "blue"
   },
- 
+  {
+    id: "2",
+    title: "Wristband",
+    description: "Custom wristband e-commerce platform with product customization options",
+    image: "/our-work/photo-1563013544-824ae1b704d3.png",
+    category: "ecommerce",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    liveUrl: "https://www.wristband.com/",
+    color: "green"
+  },
   {
     id: "3",
     title: "German Classes Portal",
@@ -81,7 +90,16 @@ const projects: Project[] = [
     liveUrl: "https://karigaridemo.netlify.app",
     color: "blue"
   },
- 
+  {
+    id: "8",
+    title: "Sports Gear Swag",
+    description: "Sports apparel and equipment e-commerce platform with team customization",
+    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    category: "ecommerce",
+    technologies: ["React", "Node.js", "Stripe", "MongoDB"],
+    liveUrl: "https://www.sportsgearswag.com/",
+    color: "purple"
+  },
  
   {
     id: "10",
