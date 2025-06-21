@@ -30,28 +30,28 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { name: "About", href: "https://www.linkedin.com/company/atkind", isExternal: true, isClickable: true },
-      { name: "Careers", href: "https://www.linkedin.com/company/atkind", isExternal: true, isClickable: true },
-      { name: "Contact", href: "https://www.linkedin.com/company/atkind", isExternal: true, isClickable: true },
+      { name: "About", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Contact", href: "#contact" },
     ]
   },
   {
     title: "Resources",
     links: [
-      { name: "Blog", href: "https://www.linkedin.com/company/atkind", isExternal: true, isClickable: true },
-      { name: "Documentation", href: "https://www.linkedin.com/company/atkind", isExternal: true, isClickable: true },
-      { name: "Privacy Policy", href: "https://www.linkedin.com/company/atkind", isExternal: true, isClickable: true },
+      { name: "Blog", href: "#" },
+      { name: "Documentation", href: "#" },
+      { name: "Privacy Policy", href: "#" },
     ]
   },
   {
     title: "Services",
     links: [
-      { name: "Web Development", href: "#", isExternal: false, isClickable: false },
-      { name: "Mobile Apps", href: "#", isExternal: false, isClickable: false },
-      { name: "Consulting", href: "#", isExternal: false, isClickable: false },
+      { name: "Web Development", href: "#" },
+      { name: "Mobile Apps", href: "#" },
+      { name: "Consulting", href: "#" },
     ]
   }
-]
+] as const
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -85,25 +85,21 @@ export function Footer() {
                 </Button>
               ))}
             </div>
-          </div>          {/* Links */}
+          </div>
+
+          {/* Links */}
           {footerLinks.map((group) => (
             <div key={group.title}>
               <h3 className="font-semibold mb-3">{group.title}</h3>
               <ul className="space-y-2">
-                {group.links.map((link) => (                  <li key={link.name}>                    {link.isClickable === false ? (
-                      <span className="text-muted-foreground text-sm cursor-pointer opacity-60 hover:opacity-100 hover:text-blue-500 transition-all duration-200 block py-1">
-                        {link.name}
-                      </span>
-                    ) : (
-                      <a
-                        href={link.href}
-                        target={link.isExternal ? "_blank" : undefined}
-                        rel={link.isExternal ? "noopener noreferrer" : undefined}
-                        className="text-muted-foreground hover:text-primary text-sm transition-colors block py-1"
-                      >
-                        {link.name}
-                      </a>
-                    )}
+                {group.links.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                    >
+                      {link.name}
+                    </a>
                   </li>
                 ))}
               </ul>
