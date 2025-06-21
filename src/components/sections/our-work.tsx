@@ -19,12 +19,11 @@ type Project = {
   galleryImages?: string[]
 }
 
-const projects: Project[] = [
-  {
+const projects: Project[] = [  {
     id: "1",
     title: "FairPlace",
     description: "Real estate platform with property listings and advanced search capabilities",
-    image: "/our-work/web/FairPlace1.png",
+    image: "/our-work/web/FairPlace1.PNG",
     category: "web",
     technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     liveUrl: "https://fairplace.in",
@@ -35,12 +34,23 @@ const projects: Project[] = [
     id: "2",
     title: "Wristband",
     description: "Custom wristband e-commerce platform with product customization options",
-    image: "/our-work/web/wristband.png",
+    image: "/our-work/web/wristband.PNG",
     category: "ecommerce",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     liveUrl: "https://www.wristband.com/",
     color: "green"
   },
+  {
+    id: "2a",
+    title: "Sports Gear Swag",
+    description: "Sports apparel and equipment e-commerce platform with team customization",
+    image: "/our-work/web/sports1.PNG",
+    category: "ecommerce",
+    technologies: ["React", "Node.js", "Stripe", "MongoDB"],
+    liveUrl: "https://www.sportsgearswag.com/",
+    color: "purple"
+  },
+ 
   {
     id: "3",
     title: "German Classes Portal",
@@ -70,8 +80,7 @@ const projects: Project[] = [
     technologies: ["React", "Next.js", "Netlify"],
     liveUrl: "https://todaysai.netlify.app",
     color: "green"
-  },
-  {
+  },  {
     id: "6",
     title: "SRINC Corporate Website",
     description: "Corporate website for SRINC with service offerings and contact information",
@@ -91,41 +100,36 @@ const projects: Project[] = [
     liveUrl: "https://karigaridemo.netlify.app",
     color: "blue"
   },
-  {
-    id: "8",
-    title: "Sports Gear Swag",
-    description: "Sports apparel and equipment e-commerce platform with team customization",
-    image: "/our-work/web/sports1.PNG",
-    category: "ecommerce",
-    technologies: ["React", "Node.js", "Stripe", "MongoDB"],
-    liveUrl: "https://www.sportsgearswag.com/",
-    color: "purple"
-  },  {
+ 
+   {
     id: "10",
     title: "CodePrep - Interview Prep App",
-    description: "Mobile application for technical interview preparation with coding notes.",
+    description: "Mobile application for technical interview preparation with coding notes, company questions, and AI assistance",
     image: "/our-work/mobile/appdd03 (1).png",
     category: "mobile",
     technologies: ["React Native", "TypeScript", "Node.js", "MongoDB"],
+    // liveUrl: "https://play.google.com/store/apps/codeprep",
     color: "blue",
     galleryImages: ["/our-work/mobile/appdd03 (1).png", "/our-work/mobile/appdd04 (1).png"]
   },  {
     id: "11", 
     title: "WinWitty - Gaming Platform",
-    description: "Mobile gaming platform with daily missions, spin wheel rewards,and etc.",
+    description: "Mobile gaming platform with daily missions, spin wheel rewards, and multiple puzzle games including Tic Tac Toe and 2048",
     image: "/our-work/mobile/compressed1.png",
     category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "Cloud Functions"],
+    // liveUrl: "https://play.google.com/store/apps/winwitty",
     color: "purple",
     galleryImages: [
       "/our-work/mobile/compressed1.png", 
       "/our-work/mobile/compressed2.png", 
       "/our-work/mobile/compressed3.png"
     ]
-  },  {
+  },
+  {
     id: "11a",
     title: "GameHub - Multi-Game Platform",
-    description: "Comprehensive gaming platform featuring classic games and etc.",
+    description: "Comprehensive gaming platform featuring classic games like puzzle, arcade, and strategy games with social features",
     image: "/our-work/mobile/kk1.png",
     category: "mobile",
     technologies: ["Unity", "C#", "Firebase", "Google Play Games"],
