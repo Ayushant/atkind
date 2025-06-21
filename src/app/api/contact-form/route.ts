@@ -1,63 +1,61 @@
-import { NextRequest, NextResponse } from 'next/server';
+// src/app/api/contact-form/route.ts
+import { NextResponse } from 'next/server';
 
-// Google Apps Script Web App URL (same as submit-form for consistency)
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycXo8sMNt5bdYQBhO0cFOqSu9hSCd0GFvVLvYCJckReYVBjPIfxqZBUN2gbTCZ_Wwz2A/exec';
-
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    // Parse the request body
+    const formData = await request.json();
     
-    // Validate required fields
-    if (!data.name || !data.email) {
-      return NextResponse.json({ 
-        success: false, 
-        message: 'Name and email are required' 
-      }, { status: 400 });
-    }
-
-    // Send the data directly to Google Apps Script
+    // Validate the form data
+    if (!formData.name || !formData.email) {
+      return NextResponse.json(
+        { success: false, message: 'Name and email are required' },
+        { status: 400 }
+      );
+    }    // Replace this URL with your deployed Google Apps Script web app URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycXo8sMNt5bdYQBhO0cFOqSu9hSCd0GFvVLvYCJckReYVBjPIfxqZBUN2gbTCZ_Wwz2A/exec';
+    
+    // Send the data to Google Apps Script
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        ...data,
-        formType: 'contact' // Add a form type identifier
-      }),
+      body: JSON.stringify(formData),
       mode: 'cors',
     });
-    
-    // Handle response
+      // Handle different response types
+    let result;
     try {
-      await response.json();
+      result = await response.json();
     } catch {
       // If not JSON, try to get text response
       const text = await response.text();
-      if (!text.includes('success')) {
-        console.error('Response from Google Script:', text);
+      if (text.includes('success')) {
+        result = { success: true, message: 'Form submitted successfully' };
+      } else {
+        throw new Error('Failed to parse response from Google Script');
       }
     }
     
+    if (!response.ok) {
+      throw new Error(result.message || 'Failed to submit form');
+    }
+    
     // Return success response
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Contact form submitted successfully' 
+    return NextResponse.json({
+      success: true,
+      message: 'Form submitted successfully',
     });
     
   } catch (error) {
-    console.error('Error submitting contact form:', error);
-    return NextResponse.json({ 
-      success: false, 
-      message: 'Failed to submit contact form' 
-    }, { status: 500 });
+    console.error('Error submitting form:', error);
+    return NextResponse.json(
+      { 
+        success: false, 
+        message: error instanceof Error ? error.message : 'An unexpected error occurred' 
+      },
+      { status: 500 }
+    );
   }
-}
-
-// Optional: Add a GET handler for API route testing
-export async function GET() {
-  return NextResponse.json({ 
-    message: 'Contact form API endpoint is working',
-    methods: ['POST']
-  });
 }

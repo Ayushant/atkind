@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { MotionDiv } from "@/lib/motion"
 import { motion } from "framer-motion"
 import { 
@@ -8,10 +9,13 @@ import {
   ShoppingBag, 
   Truck, 
   Wallet, 
-  Building 
+  Building,
+  Mail,
+  Phone
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 const solutions = [
   {
@@ -65,6 +69,16 @@ const solutions = [
 ]
 
 export default function Solutions() {
+  const [selectedSolution, setSelectedSolution] = useState<typeof solutions[0] | null>(null)
+  const [showContactDialog, setShowContactDialog] = useState(false)
+
+  const handleLearnMore = (solution: typeof solutions[0]) => {
+    setSelectedSolution(solution)
+  }
+
+  const handleContactUs = () => {
+    setShowContactDialog(true)
+  }
   return (
     <section id="solutions" className="py-20 bg-secondary/30">
       <div className="container px-4 mx-auto">
@@ -127,21 +141,18 @@ export default function Solutions() {
                       {feature}
                     </div>
                   ))}
-                </div>
-
-                {/* Action Button */}
+                </div>                {/* Action Button */}
                 <Button 
                   variant="outline" 
                   className="w-full group-hover:bg-primary/5"
+                  onClick={() => handleLearnMore(solution)}
                 >
                   Learn More
                 </Button>
               </div>
             </MotionDiv>
           ))}
-        </div>
-
-        {/* Call to Action */}
+        </div>        {/* Call to Action */}
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -152,10 +163,130 @@ export default function Solutions() {
           <p className="text-muted-foreground mb-6">
             Don&apos;t see your industry? We create custom solutions for unique business needs.
           </p>
-          <Button size="lg" className="px-8">
+          <Button size="lg" className="px-8" onClick={handleContactUs}>
             Contact Us
           </Button>
         </MotionDiv>
+
+        {/* Learn More Dialog */}
+        <Dialog open={!!selectedSolution} onOpenChange={() => setSelectedSolution(null)}>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+            {selectedSolution && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-3 text-2xl">
+                    <div className={cn(
+                      "flex items-center justify-center w-12 h-12 rounded-lg",
+                      selectedSolution.bgColor
+                    )}>
+                      <div className={selectedSolution.color}>
+                        {selectedSolution.icon}
+                      </div>
+                    </div>
+                    {selectedSolution.title} Solutions
+                  </DialogTitle>
+                </DialogHeader>
+                
+                <div className="space-y-6">
+                  <p className="text-muted-foreground text-lg">
+                    {selectedSolution.description}
+                  </p>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-3">Key Features:</h4>
+                    <div className="grid gap-2">
+                      {selectedSolution.features.map((feature) => (
+                        <div key={feature} className="flex items-center gap-2">
+                          <div className={cn("w-2 h-2 rounded-full", selectedSolution.bgColor)} />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="bg-muted/50 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Why Choose Our {selectedSolution.title} Solutions?</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• Custom-built solutions tailored to your specific needs</li>
+                      <li>• Scalable architecture that grows with your business</li>
+                      <li>• Seamless integration with existing systems</li>
+                      <li>• 24/7 support and maintenance</li>
+                      <li>• Proven track record in the {selectedSolution.title.toLowerCase()} industry</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="flex gap-3 pt-4">
+                    <Button 
+                      onClick={() => {
+                        setSelectedSolution(null)
+                        setShowContactDialog(true)
+                      }}
+                      className="flex-1"
+                    >
+                      Get Started
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setSelectedSolution(null)}
+                      className="flex-1"
+                    >
+                      Close
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+
+        {/* Contact Dialog */}
+        <Dialog open={showContactDialog} onOpenChange={setShowContactDialog}>
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle>Contact Us</DialogTitle>
+            </DialogHeader>
+            
+            <div className="space-y-4">
+              <p className="text-muted-foreground">
+                Ready to transform your business? Get in touch with our experts today.
+              </p>
+              
+              <div className="space-y-3">
+                <a 
+                  href="mailto:contact@atkind.com" 
+                  className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
+                >
+                  <Mail className="w-5 h-5 text-primary" />
+                  <div>
+                    <div className="font-medium">Email Us</div>
+                    <div className="text-sm text-muted-foreground">contact@atkind.com</div>
+                  </div>
+                </a>
+                
+                <a 
+                  href="tel:+1234567890" 
+                  className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
+                >
+                  <Phone className="w-5 h-5 text-primary" />
+                  <div>
+                    <div className="font-medium">Call Us</div>
+                    <div className="text-sm text-muted-foreground">+1 (234) 567-8900</div>
+                  </div>
+                </a>
+              </div>
+              
+              <div className="pt-4">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowContactDialog(false)}
+                  className="w-full"
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   )
