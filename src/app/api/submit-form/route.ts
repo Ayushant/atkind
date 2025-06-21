@@ -21,19 +21,15 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-      mode: 'cors',
-    });
+      mode: 'cors',    });
     
-    // Handle different response types
-    let result;
+    // Handle response
     try {
-      result = await response.json();
-    } catch (error) {
+      await response.json();
+    } catch {
       // If not JSON, try to get text response
       const text = await response.text();
-      if (text.includes('success')) {
-        result = { success: true, message: 'Form submitted successfully' };
-      } else {
+      if (!text.includes('success')) {
         console.error('Response from Google Script:', text);
       }
     }

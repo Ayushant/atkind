@@ -10,46 +10,33 @@ const nextConfig = {
   images: {
     domains: ['i.pravatar.cc', 'images.unsplash.com'],
     unoptimized: process.env.NODE_ENV === "development",
-  },
-  // Disable automatic OG image generation
+  },  // Disable automatic OG image generation
   experimental: {
     // Disable optimizeCss to avoid critters dependency issues in production
     // optimizeCss: true,
     scrollRestoration: true,
   },
-  // Avoid symlink issues by enabling symlinks
-  output: 'standalone',
-  // Webpack optimizations
+  // Simplified webpack configuration to avoid chunk loading errors
   webpack: (config, { dev, isServer }) => {
-    // Production optimizations
-    if (!dev) {
-      // Split chunks optimization
+    // Only apply optimizations in production
+    if (!dev && !isServer) {
+      // Simplified chunk splitting
       config.optimization.splitChunks = {
         chunks: 'all',
-        minSize: 20000,
-        maxSize: 244000,
-        minChunks: 1,
-        maxAsyncRequests: 30,
-        maxInitialRequests: 30,
         cacheGroups: {
-          default: false,
-          vendors: false,
-          framework: {
-            chunks: 'all',
-            name: 'framework',
-            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
-            priority: 40,
-            enforce: true,
-          },
-          lib: {
-            test: /[\\/]node_modules[\\/]/,
-            priority: 30,
-            minChunks: 1,
+          default: {
+            minChunks: 2,
+            priority: 10,
             reuseExistingChunk: true,
           },
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: 20,
+            chunks: 'all',
+          },
         },
-      }
-    }
+      }    }
     return config
   },
 }
@@ -58,4 +45,4 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = withBundleAnalyzer(nextConfig) 
+module.exports = withBundleAnalyzer(nextConfig)

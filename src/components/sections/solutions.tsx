@@ -6,11 +6,9 @@ import { motion } from "framer-motion"
 import { 
   Building2, 
   HeartPulse, 
-  ShoppingBag, 
-  Truck, 
+  ShoppingBag,   Truck, 
   Wallet, 
   Building,
-  X,
   Check,
   CheckCircle2,
   Mail,
@@ -22,6 +20,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { PhoneInput } from "@/components/ui/phone-input"
+import { submitFormToGoogleSheets } from '@/lib/forms/submit-form'
 
 const solutions = [
   {
@@ -134,11 +133,7 @@ export default function Solutions() {
     const emailInput = form.querySelector('#email') as HTMLInputElement;
     const companyInput = form.querySelector('#company') as HTMLInputElement;
     const messageInput = form.querySelector('#message') as HTMLTextAreaElement;
-    
-    // Import the form submission utility
-    const { submitFormToGoogleSheets } = await import('@/lib/forms/submit-form');
-    
-    // Submit the form data
+      // Submit the form data
     const result = await submitFormToGoogleSheets({
       name: nameInput.value,
       phone: phoneInput.value,
@@ -347,7 +342,7 @@ export default function Solutions() {
           <DialogHeader className="pb-4">
             <DialogTitle className="text-lg">Start Your Project</DialogTitle>
             <DialogDescription className="text-sm">
-              Let's discuss your project requirements
+              Let&apos;s discuss your project requirements
             </DialogDescription>
           </DialogHeader>
 
@@ -355,10 +350,9 @@ export default function Solutions() {
             <div className="py-4 text-center">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-600 mb-3">
                 <CheckCircle2 className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Thank You!</h3>
+              </div>              <h3 className="text-lg font-semibold mb-2">Thank You!</h3>
               <p className="text-sm text-muted-foreground">
-                We'll contact you within 24 hours.
+                We&apos;ll contact you within 24 hours.
               </p>
             </div>
           ) : (

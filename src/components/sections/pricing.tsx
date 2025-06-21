@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Check, CheckCircle2, Mail, Phone } from "lucide-react"
 import { MotionDiv } from "@/lib/motion"
 import { PhoneInput } from "@/components/ui/phone-input"
+import { submitFormToGoogleSheets } from '@/lib/forms/submit-form'
 
 const pricingPlans = [
   {
@@ -74,7 +75,6 @@ const pricingPlans = [
 export default function PricingWithDialog() {
   const [showContactForm, setShowContactForm] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const [formType, setFormType] = useState("project")
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -85,11 +85,7 @@ export default function PricingWithDialog() {
     const emailInput = form.querySelector('#email') as HTMLInputElement;
     const companyInput = form.querySelector('#company') as HTMLInputElement;
     const messageInput = form.querySelector('#message') as HTMLTextAreaElement;
-    
-    // Import the form submission utility
-    const { submitFormToGoogleSheets } = await import('@/lib/forms/submit-form');
-    
-    // Submit the form data
+      // Submit the form data
     const result = await submitFormToGoogleSheets({
       name: nameInput.value,
       phone: phoneInput.value,
@@ -111,9 +107,7 @@ export default function PricingWithDialog() {
       setFormSubmitted(false)
     }, 3000)
   }
-
-  const handleOpenForm = (type: string) => {
-    setFormType(type)
+  const handleOpenForm = () => {
     setShowContactForm(true)
   }
 
@@ -169,12 +163,10 @@ export default function PricingWithDialog() {
                     <span className="text-sm">{feature}</span>
                   </li>
                 ))}
-              </ul>
-
-              <Button
+              </ul>              <Button
                 className={`w-full ${!plan.featured ? 'variant-outline' : ''}`}
                 variant={plan.featured ? 'default' : 'outline'}
-                onClick={() => handleOpenForm("project")}
+                onClick={() => handleOpenForm()}
               >
                 Get Started
               </Button>
@@ -207,9 +199,8 @@ export default function PricingWithDialog() {
       {/* Contact Form Dialog */}
       <Dialog open={showContactForm} onOpenChange={setShowContactForm}>        <DialogContent className="z-[9999] sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Get a Quote</DialogTitle>
-            <DialogDescription>
-              Tell us about your project and we'll provide a custom quote within 24 hours.
+            <DialogTitle>Get a Quote</DialogTitle>            <DialogDescription>
+              Tell us about your project and we&apos;ll provide a custom quote within 24 hours.
             </DialogDescription>
           </DialogHeader>
 

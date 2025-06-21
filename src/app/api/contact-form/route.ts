@@ -24,12 +24,11 @@ export async function POST(request: Request) {
       body: JSON.stringify(formData),
       mode: 'cors',
     });
-    
-    // Handle different response types
+      // Handle different response types
     let result;
     try {
       result = await response.json();
-    } catch (error) {
+    } catch {
       // If not JSON, try to get text response
       const text = await response.text();
       if (text.includes('success')) {

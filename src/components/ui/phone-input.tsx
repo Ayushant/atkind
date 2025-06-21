@@ -217,7 +217,6 @@ interface PhoneInputProps {
   id?: string
   placeholder?: string
   required?: boolean
-  value?: string
   onChange?: (value: string) => void
   className?: string
 }
@@ -226,7 +225,6 @@ export function PhoneInput({
   id, 
   placeholder = "Phone number", 
   required = false, 
-  value = "", 
   onChange,
   className 
 }: PhoneInputProps) {

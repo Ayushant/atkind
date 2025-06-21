@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { submitFormToGoogleSheets } from '@/lib/forms/submit-form'
 import { PhoneInput } from "@/components/ui/phone-input"
 
 const Hero = () => {
@@ -35,11 +36,7 @@ const Hero = () => {
     const emailInput = form.querySelector('#email') as HTMLInputElement;
     const companyInput = form.querySelector('#company') as HTMLInputElement;
     const messageInput = form.querySelector('#message') as HTMLTextAreaElement;
-    
-    // Import the form submission utility
-    const { submitFormToGoogleSheets } = await import('@/lib/forms/submit-form');
-    
-    // Submit the form data
+      // Submit the form data
     const result = await submitFormToGoogleSheets({
       name: nameInput.value,
       phone: phoneInput.value,
