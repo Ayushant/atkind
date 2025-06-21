@@ -16,6 +16,7 @@ type Project = {
   liveUrl?: string
   githubUrl?: string
   color: string
+  galleryImages?: string[]
 }
 
 const projects: Project[] = [
@@ -23,7 +24,7 @@ const projects: Project[] = [
     id: "1",
     title: "FairPlace",
     description: "Real estate platform with property listings and advanced search capabilities",
-    image: "/our-work/photo-1472851294608-062f824d29cc.png",
+    image: "/our-work/web/FairPlace1.png",
     category: "web",
     technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     liveUrl: "https://fairplace.in",
@@ -34,7 +35,7 @@ const projects: Project[] = [
     id: "2",
     title: "Wristband",
     description: "Custom wristband e-commerce platform with product customization options",
-    image: "/our-work/photo-1563013544-824ae1b704d3.png",
+    image: "/our-work/web/wristband.png",
     category: "ecommerce",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     liveUrl: "https://www.wristband.com/",
@@ -44,7 +45,7 @@ const projects: Project[] = [
     id: "3",
     title: "German Classes Portal",
     description: "Educational website for Aditya Sir's German language classes",
-    image: "/our-work/photo-1551288049-bebda4e38f71.png",
+    image: "/our-work/web/germanclass.PNG",
     category: "education",
     technologies: ["HTML", "CSS", "JavaScript", "Netlify"],
     liveUrl: "https://adityasirgermanclasses.netlify.app",
@@ -54,7 +55,7 @@ const projects: Project[] = [
     id: "4",
     title: "WordPress NA",
     description: "WordPress community platform with resources and tutorials",
-    image: "/our-work/photo-1576091160550-2173dba999ef.png",
+    image: "/our-work/web/wordpressna.PNG",
     category: "education",
     technologies: ["React", "WordPress API", "Netlify"],
     liveUrl: "https://wordpressna.netlify.app",
@@ -64,7 +65,7 @@ const projects: Project[] = [
     id: "5",
     title: "Today's AI",
     description: "AI news and updates platform featuring latest developments",
-    image: "/our-work/photo-1526628953301-3e589a6a8b74.png",
+    image: "/our-work/web/todaysai.PNG",
     category: "web",
     technologies: ["React", "Next.js", "Netlify"],
     liveUrl: "https://todaysai.netlify.app",
@@ -74,7 +75,7 @@ const projects: Project[] = [
     id: "6",
     title: "SRINC Corporate Website",
     description: "Corporate website for SRINC with service offerings and contact information",
-    image: "/our-work/photo-1536240478700-b869070f9279.png",
+    image: "/our-work/web/srinc.PNG",
     category: "web",
     technologies: ["HTML", "CSS", "JavaScript", "PHP"],
     liveUrl: "https://srinc.in",
@@ -84,7 +85,7 @@ const projects: Project[] = [
     id: "7",
     title: "Karigari Demo",
     description: "E-commerce platform for artisanal handcrafted products",
-    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    image: "/our-work/web/kar.PNG",
     category: "ecommerce",
     technologies: ["React", "Firebase", "Netlify"],
     liveUrl: "https://karigaridemo.netlify.app",
@@ -94,36 +95,52 @@ const projects: Project[] = [
     id: "8",
     title: "Sports Gear Swag",
     description: "Sports apparel and equipment e-commerce platform with team customization",
-    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    image: "/our-work/web/sports1.PNG",
     category: "ecommerce",
     technologies: ["React", "Node.js", "Stripe", "MongoDB"],
     liveUrl: "https://www.sportsgearswag.com/",
     color: "purple"
-  },
- 
-  {
+  },  {
     id: "10",
     title: "CodePrep - Interview Prep App",
-    description: "Mobile application for technical interview preparation with coding notes, company questions, and AI assistance",
-    image: "/our-work/codeprep-mobile.png",
+    description: "Mobile application for technical interview preparation with coding notes.",
+    image: "/our-work/mobile/appdd03 (1).png",
     category: "mobile",
     technologies: ["React Native", "TypeScript", "Node.js", "MongoDB"],
-    // liveUrl: "https://play.google.com/store/apps/codeprep",
-    color: "blue"
+    color: "blue",
+    galleryImages: ["/our-work/mobile/appdd03 (1).png", "/our-work/mobile/appdd04 (1).png"]
   },  {
     id: "11", 
     title: "WinWitty - Gaming Platform",
-    description: "Mobile gaming platform with daily missions, spin wheel rewards, and multiple puzzle games including Tic Tac Toe and 2048",
-    image: "/our-work/winwitty-mobile.png",
+    description: "Mobile gaming platform with daily missions, spin wheel rewards,and etc.",
+    image: "/our-work/mobile/compressed1.png",
     category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "Cloud Functions"],
-    // liveUrl: "https://play.google.com/store/apps/winwitty",
-    color: "purple"
+    color: "purple",
+    galleryImages: [
+      "/our-work/mobile/compressed1.png", 
+      "/our-work/mobile/compressed2.png", 
+      "/our-work/mobile/compressed3.png"
+    ]
+  },  {
+    id: "11a",
+    title: "GameHub - Multi-Game Platform",
+    description: "Comprehensive gaming platform featuring classic games and etc.",
+    image: "/our-work/mobile/kk1.png",
+    category: "mobile",
+    technologies: ["Unity", "C#", "Firebase", "Google Play Games"],
+    color: "green",
+    galleryImages: [
+      "/our-work/mobile/kk1.png",
+      "/our-work/mobile/kk2.png",
+      "/our-work/mobile/kk3.png",
+      "/our-work/mobile/kk4.png"
+    ]
   },
   {
     id: "12",    title: "Rohum.tech",
     description: "Mental health platform offering therapy sessions and self-help resources",
-    image: "/our-work/photo-1536240478700-b869070f9279.png",
+    image: "/our-work/web/rohum.PNG",
     category: "web",
     technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     liveUrl: "https://rohum.tech",
@@ -133,7 +150,7 @@ const projects: Project[] = [
     id: "13",
     title: "AdiYogInGo",
     description: "Yoga and wellness platform offering classes and meditation resources",
-    image: "/our-work/photo-1551288049-bebda4e38f71.png",
+    image: "/our-work/web/adiyogi.PNG",
     category: "web",
     technologies: ["React", "Firebase", "Netlify"],
     liveUrl: "https://adiyogingo.netlify.app",
@@ -143,7 +160,7 @@ const projects: Project[] = [
     id: "14",
     title: "Astro Project",
     description: "Astronomy education platform with interactive star maps and celestial information",
-    image: "/our-work/photo-1576091160550-2173dba999ef.png",
+    image: "/our-work/web/astro.PNG",
     category: "education",
     technologies: ["React", "Three.js", "Netlify"],
     liveUrl: "https://astroproject155.netlify.app",
@@ -153,7 +170,7 @@ const projects: Project[] = [
     id: "15",
     title: "LivelyK",
     description: "Event booking and management platform for live performances",
-    image: "/our-work/photo-1563013544-824ae1b704d3.png",
+    image: "/our-work/web/livelyk.PNG",
     category: "web",
     technologies: ["Next.js", "Firebase", "Tailwind CSS"],
     liveUrl: "https://livelyk.netlify.app",
@@ -163,7 +180,7 @@ const projects: Project[] = [
     id: "16",
     title: "FairPlace Medical",
     description: "Healthcare provider directory and appointment booking platform",
-    image: "/our-work/photo-1472851294608-062f824d29cc.png",
+    image: "/our-work/web/fairplacemed.PNG",
     category: "web",
     technologies: ["React", "Node.js", "MongoDB"],
     liveUrl: "https://fairplace-med.netlify.app",
@@ -173,7 +190,7 @@ const projects: Project[] = [
     id: "17",
     title: "Hotel 23K",
     description: "Luxury hotel booking platform with virtual room tours",
-    image: "/our-work/photo-1618005182384-a83a8bd57fbe.png",
+    image: "/our-work/web/hotel23.PNG",
     category: "web",
     technologies: ["React", "Node.js", "Express"],
     liveUrl: "https://hotel23k.netlify.app",
@@ -183,7 +200,7 @@ const projects: Project[] = [
     id: "18",
     title: "DCE Educational Portal",
     description: "E-learning platform for engineering students with course materials and assessments",
-    image: "/our-work/photo-1526628953301-3e589a6a8b74.png",
+    image: "/our-work/web/dce.PNG",
     category: "education",
     technologies: ["React", "Firebase", "Material UI"],
     liveUrl: "https://dce2.netlify.app",
@@ -193,7 +210,7 @@ const projects: Project[] = [
     id: "19",
     title: "ExploreSphere",
     description: "Travel planning and destination discovery platform with interactive maps",
-    image: "/our-work/photo-1536240478700-b869070f9279.png",
+    image: "/our-work/web/exploresphere.PNG",
     category: "web",
     technologies: ["Next.js", "MongoDB", "Tailwind CSS"],
     liveUrl: "https://exploresphere.netlify.app",
@@ -213,19 +230,54 @@ export function OurWork() {
   const [selectedCategory, setSelectedCategory] = useState<Project["category"]>("all")
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isMouseOverModal, setIsMouseOverModal] = useState(false)
 
   const filteredProjects = projects.filter(
     project => selectedCategory === "all" || project.category === selectedCategory
   )
 
-  const openImageModal = (project: Project) => {
+  const openImageModal = (project: Project, imageIndex: number = 0) => {
     setSelectedProject(project)
-    setSelectedImage(project.image)
+    setCurrentImageIndex(imageIndex)
+    if (project.galleryImages && project.galleryImages.length > 0) {
+      setSelectedImage(project.galleryImages[imageIndex])
+    } else {
+      setSelectedImage(project.image)
+    }
   }
 
   const closeImageModal = () => {
     setSelectedImage(null)
     setSelectedProject(null)
+    setCurrentImageIndex(0)
+    setIsMouseOverModal(false)
+  }
+
+  const nextImage = () => {
+    if (selectedProject?.galleryImages && selectedProject.galleryImages.length > 1) {
+      const nextIndex = (currentImageIndex + 1) % selectedProject.galleryImages.length
+      setCurrentImageIndex(nextIndex)
+      setSelectedImage(selectedProject.galleryImages[nextIndex])
+    }
+  }
+
+  const prevImage = () => {
+    if (selectedProject?.galleryImages && selectedProject.galleryImages.length > 1) {
+      const prevIndex = currentImageIndex === 0 ? selectedProject.galleryImages.length - 1 : currentImageIndex - 1
+      setCurrentImageIndex(prevIndex)
+      setSelectedImage(selectedProject.galleryImages[prevIndex])
+    }
+  }
+
+  // Auto-close modal when mouse leaves
+  const handleMouseLeave = () => {
+    setIsMouseOverModal(false)
+    setTimeout(() => {
+      if (!isMouseOverModal) {
+        closeImageModal()
+      }
+    }, 500) // 500ms delay before closing
   }
 
   return (
@@ -270,9 +322,8 @@ export function OurWork() {
               whileHover={{ y: -5 }}
               className="group"
             >
-              <div className="bg-background rounded-xl overflow-hidden border">
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-muted cursor-pointer group/image" onClick={() => openImageModal(project)}>
+              <div className="bg-background rounded-xl overflow-hidden border">                {/* Project Image */}
+                <div className="relative h-48 overflow-hidden bg-muted cursor-pointer group/image" onClick={() => openImageModal(project, 0)}>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -289,6 +340,11 @@ export function OurWork() {
                   {/* Zoom overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
                     <ZoomIn className="w-8 h-8 text-white" />
+                    {project.galleryImages && project.galleryImages.length > 1 && (
+                      <span className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-xs">
+                        +{project.galleryImages.length} images
+                      </span>
+                    )}
                   </div>
                   {/* Links overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4" 
@@ -331,7 +387,12 @@ export function OurWork() {
                         <ExternalLink className="w-4 h-4 text-muted-foreground" />
                       </a>
                     ) : (
-                      project.title
+                      <span 
+                        className="hover:text-primary transition-colors cursor-pointer"
+                        onClick={() => openImageModal(project, 0)}
+                      >
+                        {project.title}
+                      </span>
                     )}
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -352,36 +413,67 @@ export function OurWork() {
               </div>
             </MotionDiv>
           ))}
-        </div>
-
-        {/* Image Modal */}
+        </div>        {/* Enhanced Image Modal with Gallery */}
         {selectedImage && selectedProject && (
           <div 
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
             onClick={closeImageModal}
+            onMouseLeave={handleMouseLeave}
           >
-            <div className="relative max-w-4xl max-h-[90vh] w-full">
+            <div 
+              className="relative max-w-6xl max-h-[95vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+              onMouseEnter={() => setIsMouseOverModal(true)}
+              onMouseLeave={() => setIsMouseOverModal(false)}
+            >
               {/* Close button */}
               <button
                 onClick={closeImageModal}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10 p-2"
                 aria-label="Close modal"
               >
                 <X className="w-8 h-8" />
               </button>
               
+              {/* Navigation arrows for gallery */}
+              {selectedProject.galleryImages && selectedProject.galleryImages.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 p-2 bg-black/50 rounded-full"
+                    aria-label="Previous image"
+                  >
+                    ←
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 p-2 bg-black/50 rounded-full"
+                    aria-label="Next image"
+                  >
+                    →
+                  </button>
+                </>
+              )}
+              
               {/* Modal content */}
-              <div className="bg-background rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+              <div className="bg-background rounded-lg overflow-hidden shadow-2xl">
                 {/* Large image */}
-                <div className="relative w-full h-[60vh] bg-muted">
+                <div className="relative w-full h-[70vh] bg-muted">
                   <Image
                     src={selectedImage}
-                    alt={selectedProject.title}
+                    alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
                     fill
                     className="object-contain"
-                    sizes="90vw"
+                    sizes="95vw"
                     priority
                   />
+                  
+                  {/* Image counter */}
+                  {selectedProject.galleryImages && selectedProject.galleryImages.length > 1 && (
+                    <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                      {currentImageIndex + 1} / {selectedProject.galleryImages.length}
+                    </div>
+                  )}
                 </div>
                 
                 {/* Project details */}
@@ -419,7 +511,7 @@ export function OurWork() {
                   </p>
                   
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
@@ -429,6 +521,32 @@ export function OurWork() {
                       </span>
                     ))}
                   </div>
+                  
+                  {/* Image thumbnails for gallery */}
+                  {selectedProject.galleryImages && selectedProject.galleryImages.length > 1 && (
+                    <div className="flex gap-2 justify-center">
+                      {selectedProject.galleryImages.map((img, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setCurrentImageIndex(index)
+                            setSelectedImage(img)
+                          }}
+                          className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                            index === currentImageIndex ? 'border-primary' : 'border-transparent hover:border-gray-300'
+                          }`}
+                        >
+                          <Image
+                            src={img}
+                            alt={`${selectedProject.title} thumbnail ${index + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="64px"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

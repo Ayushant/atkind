@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { PhoneInput } from "@/components/ui/phone-input"
 
 const Hero = () => {
   const [showContactForm, setShowContactForm] = useState(false)
@@ -25,12 +26,37 @@ const Hero = () => {
     setShowContactForm(true)
     console.log("Opening form for:", type)
   }
-
-  const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted")
-    setFormSubmitted(true)
-    setTimeout(() => setShowContactForm(false), 2000)
+      // Get form data from the form elements
+    const form = e.target as HTMLFormElement;
+    const nameInput = form.querySelector('#name') as HTMLInputElement;
+    const phoneInput = form.querySelector('#phone') as HTMLInputElement;
+    const emailInput = form.querySelector('#email') as HTMLInputElement;
+    const companyInput = form.querySelector('#company') as HTMLInputElement;
+    const messageInput = form.querySelector('#message') as HTMLTextAreaElement;
+    
+    // Import the form submission utility
+    const { submitFormToGoogleSheets } = await import('@/lib/forms/submit-form');
+    
+    // Submit the form data
+    const result = await submitFormToGoogleSheets({
+      name: nameInput.value,
+      phone: phoneInput.value,
+      email: emailInput.value,
+      company: companyInput?.value || '',
+      message: messageInput?.value || '',
+      formType: formType === 'project' ? 'Project Inquiry' : 'Consultation Request',
+      serviceType: formType === 'project' ? 'Custom Development' : 'Consultation',
+    });
+    
+    console.log("Form submitted:", result);
+    
+    // Show success message
+    setFormSubmitted(true);
+    
+    // Close the form after a delay
+    setTimeout(() => setShowContactForm(false), 3000);
   }
 
   return (
@@ -109,9 +135,9 @@ const Hero = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
           >
             {[
-              { number: "10+", label: "Years Experience" },
+              { number: "5+", label: "Years Experience" },
               { number: "55+", label: "Projects Delivered" },
-              { number: "15+", label: "Team Members" },
+              { number: "10+", label: "Team Members" },
               { number: "99%", label: "Client Satisfaction" }
             ].map(stat => (
               <div key={stat.label} className="text-center">
@@ -128,14 +154,16 @@ const Hero = () => {
       </div>
 
       {/* Contact Form Dialog */}
-      <Dialog open={showContactForm} onOpenChange={setShowContactForm}>
-        <DialogContent className="z-[9999] sm:max-w-[500px]">
+      <Dialog open={showContactForm} onOpenChange={setShowContactForm}>        <DialogContent className="z-[9999] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>
               {formType === "project" ? "Start Your Project" : "Schedule a Consultation"}
             </DialogTitle>
             <DialogDescription>
-              Fill out the form below and we&apos;ll get back to you as soon as possible.
+              {formType === "project" 
+                ? "Tell us about your project and we'll get back to you within 24 hours."
+                : "Schedule a free consultation to discuss your needs."
+              }
             </DialogDescription>
           </DialogHeader>
 
@@ -150,42 +178,62 @@ const Hero = () => {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
-              <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 py-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
-                  <Input id="name" placeholder="Enter your full name" required />
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="Your name" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" placeholder="Enter your phone number" required />
+                  <Label htmlFor="email">Email *</Label>
+                  <Input id="email" type="email" placeholder="your@email.com" required />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" placeholder="Enter your email address" required />
-                </div>
-                <Button type="submit" className="w-full">Submit</Button>
               </div>
-              <div className="bg-secondary/40 p-4 rounded-lg flex flex-col justify-center space-y-4">
-                <h4 className="font-medium text-lg">Contact Us Directly</h4>
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-primary" />
-                  <a href="tel:+919021027889" className="text-sm hover:text-primary transition-colors">
-                    +91 9021027889
-                  </a>
+                <div className="space-y-2">
+                <Label htmlFor="phone">Phone Number *</Label>
+                <PhoneInput id="phone" placeholder="Phone number" required />
+              </div>
+              
+              {formType === "project" && (
+                <>                  <div className="space-y-2">
+                    <Label htmlFor="company">Company (Optional)</Label>
+                    <Input id="company" placeholder="Your company name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Project Details (Optional)</Label>
+                    <textarea
+                      id="message"
+                      placeholder="Brief description of your project..."
+                      className="min-h-[60px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    />
+                  </div>
+                </>
+              )}
+              
+              <div className="flex gap-3 pt-4">
+                <Button type="submit" className="flex-1">
+                  {formType === "project" ? "Start Project" : "Schedule Call"}
+                </Button>
+                <Button type="button" variant="outline" onClick={() => setShowContactForm(false)}>
+                  Cancel
+                </Button>
+              </div>
+              
+              <div className="pt-4 border-t">
+                <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-3 w-3" />
+                    <a href="tel:+919021027889" className="hover:text-primary transition-colors">
+                      +91 9021027889
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-3 w-3" />
+                    <a href="mailto:theayushant@gmail.com" className="hover:text-primary transition-colors">
+                      Email Us
+                    </a>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 flex-nowrap overflow-hidden">
-  <Mail className="h-4 w-4 text-primary shrink-0" />
-  <a
-    href="mailto:theayushant@gmail.com"
-    className="text-sm hover:text-primary transition-colors break-words whitespace-nowrap truncate"
-  >
-    theayushant@gmail.com
-  </a>
-</div>
-                <p className="text-sm text-muted-foreground mt-4">
-                  We&apos;ll respond to your inquiry within 24 hours during business days.
-                </p>
               </div>
             </form>
           )}

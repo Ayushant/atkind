@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Check, CheckCircle2, Mail, Phone } from "lucide-react"
 import { MotionDiv } from "@/lib/motion"
+import { PhoneInput } from "@/components/ui/phone-input"
 
 const pricingPlans = [
   {
@@ -74,11 +75,37 @@ export default function PricingWithDialog() {
   const [showContactForm, setShowContactForm] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [formType, setFormType] = useState("project")
-
-  const handleSubmit = (e: React.FormEvent) => {
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulate submission
+      // Get form data from the form elements
+    const form = e.target as HTMLFormElement;
+    const nameInput = form.querySelector('#name') as HTMLInputElement;
+    const phoneInput = form.querySelector('#phone') as HTMLInputElement;
+    const emailInput = form.querySelector('#email') as HTMLInputElement;
+    const companyInput = form.querySelector('#company') as HTMLInputElement;
+    const messageInput = form.querySelector('#message') as HTMLTextAreaElement;
+    
+    // Import the form submission utility
+    const { submitFormToGoogleSheets } = await import('@/lib/forms/submit-form');
+    
+    // Submit the form data
+    const result = await submitFormToGoogleSheets({
+      name: nameInput.value,
+      phone: phoneInput.value,
+      email: emailInput.value,
+      company: companyInput?.value || '',
+      message: messageInput?.value || '',
+      formType: 'Pricing Inquiry',
+      serviceType: 'Custom Development',
+    });
+    
+    console.log("Form submitted:", result);
+    
+    // Show success message
     setFormSubmitted(true)
+    
+    // Close the form after a delay
     setTimeout(() => {
       setShowContactForm(false)
       setFormSubmitted(false)
@@ -178,14 +205,11 @@ export default function PricingWithDialog() {
       </div>
 
       {/* Contact Form Dialog */}
-      <Dialog open={showContactForm} onOpenChange={setShowContactForm}>
-        <DialogContent className="z-[9999] sm:max-w-[500px]">
+      <Dialog open={showContactForm} onOpenChange={setShowContactForm}>        <DialogContent className="z-[9999] sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>
-              {formType === "project" ? "Start Your Project" : "Schedule a Consultation"}
-            </DialogTitle>
+            <DialogTitle>Get a Quote</DialogTitle>
             <DialogDescription>
-              Fill out the form below and we&apos;ll get back to you as soon as possible.
+              Tell us about your project and we'll provide a custom quote within 24 hours.
             </DialogDescription>
           </DialogHeader>
 
@@ -200,42 +224,59 @@ export default function PricingWithDialog() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
-              <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 py-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
-                  <Input id="name" placeholder="Enter your full name" required />
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="Your name" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" placeholder="Enter your phone number" required />
+                  <Label htmlFor="email">Email *</Label>
+                  <Input id="email" type="email" placeholder="your@email.com" required />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" placeholder="Enter your email address" required />
-                </div>
-                <Button type="submit" className="w-full">Submit</Button>
               </div>
-              <div className="bg-secondary/40 p-4 rounded-lg flex flex-col justify-center space-y-4">
-                <h4 className="font-medium text-lg">Contact Us Directly</h4>
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-primary" />
-                  <a href="tel:+919021027889" className="text-sm hover:text-primary transition-colors">
-                    +91 9021027889
-                  </a>
+                <div className="space-y-2">
+                <Label htmlFor="phone">Phone Number *</Label>
+                <PhoneInput id="phone" placeholder="Phone number" required />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="company">Company (Optional)</Label>                <Input id="company" placeholder="Your company name" />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="message">Project Details (Optional)</Label>
+                <textarea
+                  id="message"
+                  placeholder="Brief description of your project..."
+                  className="min-h-[60px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
+              
+              <div className="flex gap-3 pt-4">
+                <Button type="submit" className="flex-1">
+                  Get Quote
+                </Button>
+                <Button type="button" variant="outline" onClick={() => setShowContactForm(false)}>
+                  Cancel
+                </Button>
+              </div>
+              
+              <div className="pt-4 border-t">
+                <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-3 w-3" />
+                    <a href="tel:+919021027889" className="hover:text-primary transition-colors">
+                      +91 9021027889
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-3 w-3" />
+                    <a href="mailto:theayushant@gmail.com" className="hover:text-primary transition-colors">
+                      Email Us
+                    </a>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 flex-nowrap overflow-hidden">
-                  <Mail className="h-4 w-4 text-primary shrink-0" />
-                  <a
-                    href="mailto:theayushant@gmail.com"
-                    className="text-sm hover:text-primary transition-colors break-words whitespace-nowrap truncate"
-                  >
-                    theayushant@gmail.com
-                  </a>
-                </div>
-                <p className="text-sm text-muted-foreground mt-4">
-                  We&apos;ll respond to your inquiry within 24 hours during business days.
-                </p>
               </div>
             </form>
           )}
