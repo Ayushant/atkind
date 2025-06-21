@@ -111,7 +111,7 @@ const Hero = () => {
             {[
               { number: "5+", label: "Years Experience" },
               { number: "55+", label: "Projects Delivered" },
-              { number: "15+", label: "Team Members" },
+              { number: "10+", label: "Team Members" },
               { number: "99%", label: "Client Satisfaction" }
             ].map(stat => (
               <div key={stat.label} className="text-center">
