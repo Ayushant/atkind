@@ -74,9 +74,6 @@ export default function Solutions() {
     setSelectedSolution(solution)
   }
 
-  const handleContactUs = () => {
-    setShowContactDialog(true)
-  }
   return (
     <section id="solutions" className="py-20 bg-secondary/30">
       <div className="container px-4 mx-auto">
@@ -137,14 +134,14 @@ export default function Solutions() {
             </div>
           ))}
         </div>        {/* Call to Action */}
-        {/* <div className="text-center mt-16">
+        <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">
             Don&apos;t see your industry? We create custom solutions for unique business needs.
           </p>
-          <Button size="lg" className="px-8" onClick={handleContactUs}>
+          <Button size="lg" className="px-8" onClick={() => setShowContactDialog(true)}>
             Contact Us
           </Button>
-        </div> */}
+        </div>
 
         {/* Learn More Dialog */}
         <Dialog open={!!selectedSolution} onOpenChange={() => setSelectedSolution(null)}>
@@ -231,24 +228,24 @@ export default function Solutions() {
               
               <div className="space-y-3">
                 <a 
-                  href="mailto:contact@atkind.com" 
+                  href="mailto:theayushant@gmail.com" 
                   className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
                   <div>
                     <div className="font-medium">Email Us</div>
-                    <div className="text-sm text-muted-foreground">contact@atkind.com</div>
+                    <div className="text-sm text-muted-foreground">theayushant@gmail.com</div>
                   </div>
                 </a>
                 
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+91 9021027889" 
                   className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary" />
                   <div>
                     <div className="font-medium">Call Us</div>
-                    <div className="text-sm text-muted-foreground">+1 (234) 567-8900</div>
+                    <div className="text-sm text-muted-foreground">+91 9021027889</div>
                   </div>
                 </a>
               </div>

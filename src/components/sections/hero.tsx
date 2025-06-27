@@ -59,8 +59,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Transform your business with cutting-edge web applications, mobile apps, AI solutions, and enterprise software. 
-            Expert development team delivering scalable, secure, and innovative technology solutions.
+           Transform your enterprise with custom web, mobile, AI, and software solutions. Scalable, secure, and expertly built for innovation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
