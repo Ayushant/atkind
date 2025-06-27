@@ -78,7 +78,7 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.title}
               className="group relative overflow-hidden rounded-lg border bg-background p-6 hover:shadow-lg transition-all"
@@ -94,4 +94,4 @@ export default function Services() {
       </div>
     </section>
   )
-} 
+}

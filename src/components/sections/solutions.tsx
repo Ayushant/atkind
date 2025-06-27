@@ -90,7 +90,7 @@ export default function Solutions() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {solutions.map((solution, index) => (
+          {solutions.map((solution) => (
             <div
               key={solution.title}
               className="group relative"
@@ -268,4 +268,4 @@ export default function Solutions() {
       </div>
     </section>
   )
-} 
+}

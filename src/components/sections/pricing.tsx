@@ -108,7 +108,7 @@ export default function PricingWithDialog() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {pricingPlans.map((plan, index) => (
+          {pricingPlans.map((plan) => (
             <div
               key={plan.name}
               className={`relative rounded-xl p-8 border ${plan.featured ? 'border-primary shadow-lg' : ''}`}
