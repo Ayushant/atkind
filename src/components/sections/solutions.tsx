@@ -137,14 +137,14 @@ export default function Solutions() {
             </div>
           ))}
         </div>        {/* Call to Action */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">
             Don&apos;t see your industry? We create custom solutions for unique business needs.
           </p>
           <Button size="lg" className="px-8" onClick={handleContactUs}>
             Contact Us
           </Button>
-        </div>
+        </div> */}
 
         {/* Learn More Dialog */}
         <Dialog open={!!selectedSolution} onOpenChange={() => setSelectedSolution(null)}>
