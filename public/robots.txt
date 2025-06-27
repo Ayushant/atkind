@@ -1,0 +1,41 @@
+# Robots.txt for atkind.com - Optimized for SEO
+User-agent: *
+Allow: /
+
+# Priority pages for crawling
+Allow: /services
+Allow: /portfolio
+Allow: /contact
+
+# Block admin/private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important images but control crawling
+Allow: /og-image.jpg
+Allow: /favicon.ico
+
+# Block unnecessary image crawling (to save crawl budget)
+Disallow: /our-work/
+Disallow: /*.png$
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.gif$
+Disallow: /*.webp$
+
+# Sitemap location
+Sitemap: https://atkind.com/sitemap.xml
+
+# Crawl delay for better performance
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
