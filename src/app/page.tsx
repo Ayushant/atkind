@@ -28,6 +28,11 @@ export default function Home() {
           <Hero />
         </section>
 
+        {/* Portfolio showcase */}
+        <section aria-label="Our portfolio" id="portfolio">
+          <OurWork />
+        </section>
+
         {/* Services section with semantic structure */}
         <section aria-label="Our services" id="services">
           <Services />
@@ -38,10 +43,7 @@ export default function Home() {
           <Solutions />
         </section>
 
-        {/* Portfolio showcase */}
-        <section aria-label="Our portfolio" id="portfolio">
-          <OurWork />
-        </section>
+        
 
         {/* Development process */}
         <section aria-label="Our development process" id="process">
