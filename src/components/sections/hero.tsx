@@ -146,17 +146,17 @@ const Hero = () => {
                 <h4 className="font-medium text-lg">Contact Us Directly</h4>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-primary" />
-                  <a href="tel:+919021027889" className="text-sm hover:text-primary transition-colors">
-                    +91 9021027889
+                  <a href="tel:+917506126456" className="text-sm hover:text-primary transition-colors">
+                    75061 26456
                   </a>
                 </div>
                 <div className="flex items-center gap-2 flex-nowrap overflow-hidden">
                   <Mail className="h-4 w-4 text-primary shrink-0" />
                   <a
-                    href="mailto:theayushant@gmail.com"
+                    href="mailto:support@atkind.com"
                     className="text-sm hover:text-primary transition-colors break-words whitespace-nowrap truncate"
                   >
-                    theayushant@gmail.com
+                    support@atkind.com
                   </a>
                 </div>
                 <p className="text-sm text-muted-foreground mt-4">

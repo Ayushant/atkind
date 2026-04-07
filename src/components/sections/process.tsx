@@ -168,14 +168,14 @@ export default function Process() {
 
             <div className="flex items-center justify-center gap-2 text-sm mb-2">
               <Phone className="h-4 w-4 text-primary" />
-              <a href="tel:+919021027889" className="hover:text-primary transition-colors">
-                +91 9021027889
+              <a href="tel:+917506126456" className="hover:text-primary transition-colors">
+                75061 26456
               </a>
             </div>
             <div className="flex items-center justify-center gap-2 text-sm">
               <Mail className="h-4 w-4 text-primary" />
-              <a href="mailto:theayushant@gmail.com" className="hover:text-primary transition-colors break-all">
-                theayushant@gmail.com
+              <a href="mailto:support@atkind.com" className="hover:text-primary transition-colors break-all">
+                support@atkind.com
               </a>
             </div>
             <p className="text-sm text-muted-foreground mt-4">

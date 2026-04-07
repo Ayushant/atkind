@@ -7,6 +7,10 @@ const Services = dynamic(() => import("@/components/sections/services"), {
   loading: () => <div className="h-screen animate-pulse bg-muted/50" aria-label="Loading services section" />
 })
 
+const CustomizableUI = dynamic(() => import("@/components/sections/customizable-ui"), {
+  loading: () => <div className="h-[50vh] animate-pulse bg-muted/50" aria-label="Loading customizable UI section" />
+})
+
 const Solutions = dynamic(() => import("@/components/sections/solutions"), {
   loading: () => <div className="h-screen animate-pulse bg-muted/50" aria-label="Loading solutions section" />
 })
@@ -26,6 +30,11 @@ export default function Home() {
         {/* Hero section with primary keywords */}
         <section aria-label="Hero section">
           <Hero />
+        </section>
+
+        {/* Customizable UI references */}
+        <section aria-label="Customizable UI" id="customizable-ui">
+          <CustomizableUI />
         </section>
 
         {/* Portfolio showcase */}

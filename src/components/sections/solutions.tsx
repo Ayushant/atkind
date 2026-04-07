@@ -228,24 +228,24 @@ export default function Solutions() {
               
               <div className="space-y-3">
                 <a 
-                  href="mailto:theayushant@gmail.com" 
+                  href="mailto:support@atkind.com" 
                   className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
                   <div>
                     <div className="font-medium">Email Us</div>
-                    <div className="text-sm text-muted-foreground">theayushant@gmail.com</div>
+                    <div className="text-sm text-muted-foreground">support@atkind.com</div>
                   </div>
                 </a>
                 
                 <a 
-                  href="tel:+91 9021027889" 
+                  href="tel:+917506126456" 
                   className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary" />
                   <div>
                     <div className="font-medium">Call Us</div>
-                    <div className="text-sm text-muted-foreground">+91 9021027889</div>
+                    <div className="text-sm text-muted-foreground">75061 26456</div>
                   </div>
                 </a>
               </div>

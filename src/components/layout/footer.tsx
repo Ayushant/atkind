@@ -21,7 +21,7 @@ const socialLinks = [
   },
   {
     name: "Email",
-    href: "mailto:contact@atkind.com",
+    href: "mailto:support@atkind.com",
     icon: <Mail className="h-5 w-5" />
   }
 ] as const
@@ -30,17 +30,17 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Contact", href: "#contact" },
+      { name: "About", href: "https://www.linkedin.com/company/atkind" },
+      { name: "Careers", href: "https://www.linkedin.com/company/atkind" },
+      { name: "Contact", href: "https://www.linkedin.com/company/atkind" },
     ]
   },
   {
     title: "Resources",
     links: [
-      { name: "Blog", href: "#" },
-      { name: "Documentation", href: "#" },
-      { name: "Privacy Policy", href: "#" },
+      { name: "Blog", href: "https://www.linkedin.com/company/atkind" },
+      { name: "Documentation", href: "https://www.linkedin.com/company/atkind" },
+      { name: "Privacy Policy", href: "https://www.linkedin.com/company/atkind" },
     ]
   },
   {
@@ -54,8 +54,6 @@ const footerLinks = [
 ] as const
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer className="bg-secondary/30 border-t">
       <div className="container px-4 py-12 mx-auto">
@@ -108,7 +106,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 mt-8 border-t text-center text-sm text-muted-foreground">          <p>            © {currentYear} atkind. All rights reserved.
+        <div className="pt-8 mt-8 border-t text-center text-sm text-muted-foreground">          <p>            © 2025 atkind. All rights reserved.
           </p>
           <p className="mt-1">
             Crafted with passion by the atkind team.
