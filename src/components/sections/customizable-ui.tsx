@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUpRight, LayoutTemplate, Sparkles } from "lucide-react"
+import { ArrowUpRight, LayoutTemplate } from "lucide-react"
 
 const uiTemplates = [
   {

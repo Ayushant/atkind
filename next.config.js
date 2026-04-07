@@ -7,7 +7,10 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === "production",
   },
   images: {
-    domains: ['i.pravatar.cc', 'images.unsplash.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'i.pravatar.cc' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
     unoptimized: process.env.NODE_ENV === "development",
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 31536000, // 1 year
@@ -25,6 +28,14 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
+          },
+          {
             key: 'X-Frame-Options',
             value: 'DENY',
           },
@@ -37,8 +48,16 @@ const nextConfig = {
             value: 'origin-when-cross-origin',
           },
           {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https: *.googleapis.com *.gstatic.com; connect-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com",
           },
         ],
       },
@@ -51,41 +70,22 @@ const nextConfig = {
           },
         ],
       },
-      {
-        source: '/_next/static/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
+      ...(process.env.NODE_ENV === 'production'
+        ? [
+            {
+              source: '/_next/static/(.*)',
+              headers: [
+                {
+                  key: 'Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
+              ],
+            },
+          ]
+        : []),
     ]
   },
-  // Simplified webpack configuration to avoid chunk loading errors
-  webpack: (config, { dev, isServer }) => {
-    // Only apply optimizations in production
-    if (!dev && !isServer) {
-      // Simplified chunk splitting
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          default: {
-            minChunks: 2,
-            priority: 10,
-            reuseExistingChunk: true,
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: 20,
-            chunks: 'all',
-          },
-        },
-      }
-    }
-    return config
-  },
+
 }
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
